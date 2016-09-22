@@ -1,0 +1,49 @@
+.table--fixo {
+  @include set-tables-fixed-and-scroll-widths(rem(78), rem(179), rem(232), rem(234));
+  margin-top: rem(31);
+
+  .table__fixed {
+    position: absolute;
+  }
+
+  .table__scroll {
+    position: relative;
+  }
+
+  .variant-hover {
+    margin-top: rem(29);
+  }
+
+  .table__selector {
+    margin-top: rem(61);
+  }
+
+  .table__fixed__col-0 {
+    width: 100%;
+  }
+
+  .table__scroll__col-0 {
+    @include media($media__l) { width: rem(215); }
+    @include media($media__xl) { width: rem(287); }
+  }
+
+  .table__scroll__col-1 {
+    @include media($media__l) { width: rem(208); }
+    @include media($media__xl) { width: rem(279); }
+  }
+
+  .table__scroll__col-2 {
+    @include media($media__l) { width: rem(175); }
+    @include media($media__xl) { width: rem(231); }
+  }
+
+  .table__scroll__col-3 {
+    @include media($media__l) { width: rem(130); }
+    @include media($media__xl) { width: rem(140); }
+  }
+}
+
+.table--fixo-new.table__product tbody tr:last-child {
+  border-bottom: none;
+}
+

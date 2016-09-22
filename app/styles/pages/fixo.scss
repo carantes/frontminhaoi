@@ -1,0 +1,312 @@
+@import '../config/config';
+
+html,
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  min-height: 100%;
+}
+
+.wrapper {
+  display: block;
+  background-image: linear-gradient(to bottom, #ea288c, #ea288c 70%, #ff6d00);
+
+  @include media($media__l) {
+    display: table;
+    height: 100%;
+    width: 100%;
+  }
+
+  &.with-cpf {
+    background-image: linear-gradient(to top, #FFA000, #ff6d00 70%);
+  }
+}
+
+
+.form__message {
+  display: table-row;
+  vertical-align: top;
+  width: 100%;
+
+  &.no-title {
+    width: 1%;
+
+    .form__title {
+      @include media($media__l) {
+        display: none;
+      }
+    }
+  }
+
+
+  @include media($media__l) {
+    width: 10%;
+    display: table-cell;
+    height: 100%;
+  }
+}
+
+.form__title {
+  color: #fff;
+  font-size: rem(28);
+  line-height: 0.9em;
+  letter-spacing: rem(-1.3);
+  font-family: $font__heading;
+  margin-top: rem(30);
+  padding: 0 rem(38) rem(38);
+
+  @include media($media__m) {
+    font-size: rem(70);
+    letter-spacing: rem(-4);
+    padding: 0 rem(60) rem(49);
+  }
+}
+
+.form__logo {
+  display: inline-block;
+
+  padding: rem(38) rem(38) 0;
+
+  @include media($media__m) {
+    padding: rem(49) rem(60) 0;
+  }
+
+  .no-title & {
+    padding-bottom: 0;
+  }
+
+  svg {
+    width: rem(71);
+  }
+}
+
+.form__fields {
+  display: block;
+  vertical-align: top;
+  width: 100%;
+  background: #fff;
+  height: 100%;
+
+  @include media($media__l) {
+    width: 70%;
+    display: table-cell;
+  }
+
+  label {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: rem(178);
+    border-bottom: rem(1.2) solid #dddddd;
+
+    @include media($media__l) {
+      height: 33vh;
+    }
+
+    .with-cpf & {
+      @include media($media__l) {
+        height: 50vh;
+      }
+    }
+
+    &:last-child {
+      border-bottom: 0;
+      height: rem(178);
+      background: rgba(#f3f3f3, .52);
+
+      @include media($media__l) {
+        height: 34vh;
+      }
+
+      .with-cpf & {
+        @include media($media__l) {
+          height: 50vh;
+        }
+      }
+    }
+
+    .isvg {
+      display: inline-block;
+      position: absolute;
+      height: rem(21);
+      top: rem(78);
+      right: rem(-40);
+
+      @include media($media__m) {
+        right: rem(13);
+      }
+
+      @include media($media__l) {
+        height: rem(23);
+        top: 16vh;
+        right: rem(78);
+
+        .with-cpf & {
+          top: 24vh;
+        }
+      }
+
+      svg {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  input {
+    display: block;
+    width: 100%;
+    padding: rem(38);
+    font-size: rem(35);
+    color: $color__black;
+    letter-spacing: rem(-2);
+    font-family: $font__text--light;
+    height: 100%;
+
+    @include media($media__l) {
+      padding: rem(97);
+      font-size: rem(42);
+    }
+
+    &:placeholder {
+      color: #dcdcdc;
+    }
+  }
+
+  input[type=text],
+  input[type=e-mail],
+  input[type=password] {
+    border: 0;
+
+    &.error {
+      color: #FF0000 !important;
+    }
+  }
+
+  input[type=submit] {
+    border: 0;
+    text-align: left;
+    cursor: pointer;
+    background: transparent;
+  }
+}
+
+
+.form__user {
+
+  & button {
+    text-align: left;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    display: block;
+    width: 100%;
+    padding: rem(38);
+    font-size: rem(35);
+    color: $color__black;
+    letter-spacing: rem(-2);
+    font-family: $font__text--light;
+    height: 100%;
+
+      @include media($media__l) {
+      padding: rem(97);
+      font-size: rem(42);
+    }
+
+  }
+}
+
+.form__items {
+  display: block;
+  vertical-align: top;
+  width: 100%;
+  background: #fff;
+  height: 100%;
+
+  @include media($media__l) {
+    width: 90%;
+    display: table-cell;
+  }
+
+  h2 {
+    font-family: $font__text--light;
+    color: $color__black;
+    letter-spacing: rem(1.7);
+    font-size: rem(38);
+    margin-bottom: rem(20);
+
+    @include media($media__l) {
+      font-size: rem(56);
+      letter-spacing: rem(-2);
+    }
+  }
+
+  p {
+    font-family: $font__text--light;
+    line-height: 1.5em;
+    font-size: rem(28);
+    letter-spacing: rem(-.6);
+    color: #909090;
+  }
+
+  .form__item {
+    position: relative;
+    overflow: hidden;
+    border: solid 1px #dbdbdb;
+    padding: rem(45) rem(89);
+
+    @include media($media__l) {
+      padding: rem(45) rem(50);
+    }
+
+    &:first-child {
+      padding-left: rem(50);
+
+      .form__item__icon {
+        display: none;
+
+        @include media($media__xl) {
+          display: table-cell;
+        }
+      }
+    }
+  }
+
+  .form__item__icon {
+    display: inline-block;
+    position: absolute;
+    left: rem(19);
+    top: rem(50);
+    width: rem(50);
+
+    @include media($media__l) {
+      position: static;
+      display: table-cell;
+      padding-right: rem(50);
+      width: rem(300);
+    }
+  }
+
+  .form__item__data {
+    @include media($media__l) {
+      display: table-cell;
+    }
+  }
+
+  .isvg {
+    display: inline-block;
+
+    @include media($media__l) {
+      display: inline-block;
+      height: rem(50);
+    }
+
+    svg {
+      width: 100%;
+      height: 100%;
+      display: inline-block;
+    }
+  }
+}

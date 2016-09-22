@@ -1,0 +1,103 @@
+// This scss need to be the last in the imports list
+// so it can override previous needs of display definition
+
+.hide {
+  display: none !important;
+}
+
+.small-only {
+  @include media($media__m) {
+    display: none !important;
+  }
+}
+
+.medium-down {
+  @include media($media__l) {
+    display: none !important;
+  }
+}
+.medium-only {
+  @include media(max-width ($size__m - 1px)) {
+    display: none !important;
+  }
+
+  @include media($media__l) {
+    display: none !important;
+  }
+}
+
+.medium-up {
+  @include media(max-width ($size__m - 1px)) {
+    display: none !important;
+  }
+}
+
+.between-medium-large {
+  @include media(max-width ($size__m - 1px)) {
+    display: none !important;
+  }
+
+  @include media($media__xl) {
+    display: none !important;
+  }
+}
+
+.between-large-extra-large {
+  @include media(max-width ($size__l - 1px)) {
+    display: none !important;
+  }
+
+  @include media($media__xxl) {
+    display: none !important;
+  }
+}
+
+.large-down {
+  @include media($media__l) {
+    display: none !important;
+  }
+}
+
+.large-only {
+  @include media(max-width ($size__l - 1px)) {
+    display: none !important;
+  }
+
+  @include media($media__xl) {
+    display: none !important;
+  }
+}
+
+.large-up {
+  @include media(max-width ($size__l - 1px)) {
+    display: none !important;
+  }
+}
+
+.extra-large-down {
+  @include media($media__xl) {
+    display: none !important;
+  }
+}
+
+.extra-large-only {
+  @include media(max-width ($size__xl - 1px)) {
+    display: none !important;
+  }
+
+  @include media($media__xxl) {
+    display: none !important;
+  }
+}
+
+.extra-large-up {
+  @include media(max-width ($size__xl - 1px)) {
+    display: none !important;
+  }
+}
+
+.full-hd-up {
+  @include media(max-width ($size__xxl - 1px)) {
+    display: none !important;
+  }
+}

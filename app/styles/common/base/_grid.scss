@@ -1,0 +1,80 @@
+// max width: 1366px | division: 12c | column: 70px | gutter: 30px | efective width: 1170px
+// max width: 1024px | division: 12c | column: 58px | gutter: 24px | efective width:  960px
+// max width:  768px | division: 12c | column: 44px | gutter: 16px | efective width:  704px
+// max width:  414px | division:  6c | column: 44px | gutter: 16px | efective width:  344px
+// max width:  320px | division:  6c | column: 35px | gutter: 14px | efective width:  280px
+
+.container {
+  @include clearfix;
+  margin-left: rem(20);
+  margin-right: rem(20);
+
+  @include media($media__m) {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: $grid__size__m;
+  }
+
+  @include media($media__l) {
+    max-width: $grid__size__l;
+  }
+
+  @include media($media__xl) {
+    max-width: $grid__size__xl;
+  }
+}
+
+// Desktop Grid
+@for $n from 1 through 12 {
+  .col-d-#{$n} {
+    @include media($media__m) {
+      width: rem($m_fixed_width * $n + ($m_fixed_gutter * ($n - 1) ) );
+    }
+
+    @include media($media__l) {
+      width: rem($l_fixed_width * $n + ($l_fixed_gutter * ($n - 1) ) );
+    }
+
+    @include media($media__xl) {
+      width: rem($xl_fixed_width * $n + ($xl_fixed_gutter * ($n - 1) ) );
+    }
+  }
+}
+
+// Tablet Grid
+@for $n from 1 through 12 {
+  .col-t-#{$n} {
+    @include media($media__m) {
+      width: rem($m_fixed_width * $n + ($m_fixed_gutter * ($n - 1) ) );
+    }
+  }
+}
+
+// Mobile Grid
+@for $n from 1 through 6 {
+  .col-m-#{$n} {
+    width: $s_fixed_width * $n + ($s_fixed_gutter * ($n - 1));
+  }
+}
+
+// Columns
+.col {
+  float: left;
+  margin-right: $s_fixed_gutter;
+
+  @include media($media__m) {
+    margin-right: rem($m_fixed_gutter);
+  }
+
+  @include media($media__l) {
+    margin-right: rem($l_fixed_gutter);
+  }
+
+  @include media($media__xl) {
+    margin-right: rem($xl_fixed_gutter);
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}

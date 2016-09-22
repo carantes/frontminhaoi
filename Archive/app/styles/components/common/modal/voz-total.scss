@@ -1,0 +1,132 @@
+.voz-total,
+.internet-internet-para-dependentes {
+  a {
+    border: 0;
+  }
+
+  .big-title {
+    @include media($media__m) {
+      float: left;
+    }
+  }
+
+  .button--transparent {
+    display: none;
+    width: 100%;
+    text-align: center;
+
+    @include media($media__m) {
+      position: relative;
+      top: rem(-8);
+      display: inline-block;
+      float: right;
+      border: rem(1.2) solid $color__white;
+      width: auto;
+      min-width: initial;
+    }
+
+    @include media($media__l) {
+      position: static;
+      float: none;
+    }
+  }
+
+  .modal__horizontal__header {
+    @include media($media__m) {
+      padding: rem(32);
+    }
+
+    @include media($media__xl) {
+      padding: rem(65) rem(100);
+    }
+
+    .modal__horizontal__icon {
+      .isvg {
+        display: none;
+
+        @include media($media__xl) {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .modal__horizontal__body {
+    @include media($media__m) {
+      padding: rem(65) rem(32);
+    }
+
+    @include media($media__xl) {
+      padding: rem(65) rem(100);
+    }
+
+    .modal__table {
+      width: 100%;
+      margin-top: 0;
+
+      &:after {
+        display: none;
+      }
+
+      td {
+        &:first-child {
+          display: none;
+
+          @include media($media__m) {
+            display: table-cell;
+          }
+        }
+
+        &:last-child {
+          width: 70%;
+        }
+      }
+    }
+
+    .modal__body__wrapper {
+      padding-right: 0;
+
+      @include media($media__xl) {
+        width: 60%;
+      }
+    }
+  }
+
+  .modal__header {
+    overflow: hidden;
+  }
+
+  .modal__horizontal__title__wrapper {
+    overflow: initial;
+
+    .button--transparent {
+      @include media($media__m) {
+        float: right;
+      }
+    }
+  }
+
+  .modal__header-paragraph__title {
+    display: block;
+    font-family: $font__text--bold;
+    font-size: rem(16);
+    margin-bottom: rem(30);
+  }
+
+  .modal__header-paragraph__subtitle {
+    display: block;
+    font-family: $font__text--bold;
+    font-size: rem(16);
+    margin-bottom: rem(5);
+
+    &.last {
+      margin-bottom: rem(80);
+    }
+  }
+
+  .modal__list__first {
+    border-bottom: rem(1.2) solid $color__black;
+    padding-bottom: rem(80);
+  }
+}
+

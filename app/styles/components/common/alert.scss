@@ -1,0 +1,98 @@
+.alert {
+  font-size: rem(13);
+  letter-spacing: letter-spacing(30);
+  line-height: 1.31em;
+
+  .alert__scroll {
+    min-height: rem(50);
+    padding-top: rem(17);
+
+    @include media($media__m) {
+      min-height: rem(40);
+      padding: rem(11) 0 rem(13);
+    }
+
+    @include media($media__l) {
+      min-height: rem(60);
+      padding: rem(21) 0 rem(19);
+    }
+  }
+
+  strong {
+    font-family: $font__text--medium;
+  }
+}
+
+.alert__header {
+  background-color: $color__gray--bright;
+  color: $color__black;
+  text-align: center;
+  border-bottom: rem(1) solid $color__gray--light;
+
+  a {
+    border-bottom: rem(1) solid rgba($color__black, .3);
+    color: rgba($color__black, .9);
+    padding-bottom: rem(1);
+
+    .no-touch &:hover,
+    .no-touch .home &:hover {
+      border-color: rgba($color__black, .3);
+      color: $color__black;
+    }
+  }
+}
+
+.alert__footer {
+  background-color: $color__white;
+  border-bottom: rem(1) solid $color__gray--light;
+  color: $color__black;
+  position: relative;
+
+  .alert__scroll {
+    position: relative;
+    left: $size-s-negative-gap;
+    width: 100vw;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+
+    @include media($media__m) {
+      left: $size-m-negative-gap;
+    }
+
+    @include media($media__l) {
+      position: static;
+      width: auto;
+      overflow: visible;
+      white-space: normal;
+    }
+
+    > * {
+      position: relative;
+      left: $size-s-positive-gap;
+      padding-right: $size-s-positive-gap;
+
+      @include media($media__m) {
+        left: $size-m-positive-gap;
+        padding-right: $size-m-positive-gap;
+      }
+
+      @include media($media__l) {
+        position: static;
+        padding-right: 0;
+      }
+    }
+  }
+
+  a {
+    border-bottom: rem(1) solid rgba($color__black, .3);
+    color: rgba($color__black, .9);
+    padding-bottom: rem(1);
+
+    .no-touch &:hover {
+      border-color: rgba($color__black, .3);
+      color: $color__black;
+    }
+  }
+}

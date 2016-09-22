@@ -1,0 +1,560 @@
+.table__product {
+  position: relative;
+  margin-top: rem(103);
+  margin-bottom: rem(54);
+  border: 0;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: rem(0);
+    width: calc(100vw - #{$size-xs-positive-gap});
+    height: rem(31);
+    @include bg-table-line(rem(29), rem(2));
+
+    @include media($media__m) {
+      display: none;
+    }
+  }
+
+  @include media($media__m) {
+    margin-bottom: rem(58);
+    @include bg-table-line(rem(29), rem(2));
+  }
+
+  @include media($media__l) {
+    margin-bottom: rem(72);
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  table,
+  th,
+  tr,
+  td,
+  thead {
+    border: 0;
+  }
+
+  table {
+    table-layout: fixed;
+  }
+
+  th,
+  td {
+    position: relative;
+    text-align: left;
+    * {
+      white-space: nowrap;
+    }
+  }
+
+  th {
+    height: rem(28);
+    font-size: rem(11);
+    font-family: $font__text--medium;
+    letter-spacing: letter-spacing(55);
+    text-transform: uppercase;
+
+    @include media($media__m) {
+      padding-right: 0;
+    }
+  }
+
+  tbody {
+    tr {
+      position: relative;
+      cursor: pointer;
+    }
+
+    td {
+      height: rem(84);
+
+      &:after {
+        content: "";
+        position: absolute;
+        display: block;
+        bottom: rem(-2);
+        left: 0;
+        width: 100%;
+        height: 0;
+        border-bottom: rem(1) solid $color__gray--light;
+        z-index: -1;
+      }
+
+      @include media($media__m) {
+        height: rem(120);
+      }
+
+      @include media($media__l) {
+        line-height: 1.35em;
+      }
+    }
+  }
+
+  small,
+  .price-animated-text {
+    position: absolute;
+    color: $color--gray;
+    font-family: $font__text--regular;
+    font-size: rem(12);
+    letter-spacing: letter-spacing(50);
+    line-height: 1em;
+    padding-top: rem(4);
+
+    @include media($media__m) {
+      padding-top: rem(2);
+    }
+  }
+
+  .price-animated-text {
+    display: block;
+    position: static;
+  }
+
+  .price-animated-text--show {
+    animation: show-tooltip 377ms ease-out forwards;
+  }
+
+  .price {
+    font-size: rem(32);
+    margin-top: rem(3);
+
+    @include media($media__m) {
+      font-size: rem(42);
+    }
+  }
+
+  .stamp {
+    top: rem(-15);
+    left: rem(-20);
+    line-height: 1em;
+    width: rem(44);
+    height: rem(44);
+    line-height: rem(10);
+    font-size: rem(10);
+    left: rem(-12);
+
+    @include media($media__m) {
+      left: rem(-20);
+      line-height: 1em;
+    }
+  }
+
+  .stamp-animate {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  .stamp-animate--show {
+    animation: bounceInStamp .6s forwards;
+  }
+
+  .button {
+    min-height: rem(50);
+    min-width: rem(110);
+    display: block;
+    border: rem(1) solid $color__blue;
+    font-family: $font__text--regular;
+    line-height: 1em;
+    margin-left: rem(20);
+    padding: rem(17) 0 0;
+    text-align: center;
+
+    & + small {
+      left: rem(20);
+      right: 0;
+      padding-top: rem(8);
+    }
+  }
+
+  svg {
+    fill: $color__blue;
+  }
+
+  .table__fixed,
+  .table__scroll {
+    padding-bottom: rem(2);
+  }
+
+  .table__fixed {
+    td {
+      text-align: left;
+    }
+  }
+
+  .table__fixed--scrolling {
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      border-left: rem(1) solid rgba($color__black, .15);
+      border-right: rem(1) solid rgba($color__black, .05);
+      z-index: 10;
+    }
+  }
+
+  .table__scroll {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+
+    @include media($media__m) {
+      width: 100%;
+      right: $size-m-negative-gap;
+    }
+
+    @include media($media__l) {
+      overflow: visible;
+      right: 0;
+    }
+
+    td {
+      font-size: rem(16);
+      font-family: $font__text--light;
+      letter-spacing: letter-spacing(-20);
+
+      @include media($media__m) {
+        font-size: rem(21);
+        letter-spacing: letter-spacing(-2);
+      }
+
+      &:last-child {
+        @include media($media__l) {
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  @for $n from 0 through 10 {
+    .variant-hover--#{$n} {
+      top: rem(84) * $n;
+
+      @include media($media__m) {
+        top: rem(120) * $n;
+      }
+    }
+  }
+
+  .table__hashtag-th {
+    position: absolute;
+    background-color: $color__purple;
+    border-radius: $border-radius-width;
+    box-shadow: rem(0) rem(1) rem(1) rem(0) rgba($color__black, 0);
+    color: $color__white;
+    margin-top: rem(-12);
+    padding: rem(8) rem(11);
+    z-index: 10;
+
+    &:after,
+    &:before {
+      @include horizontal-after-line($color__white, rem(10));
+      top: rem(13);
+      height: rem(3);
+
+      @include media($media__m) {
+        top: rem(13);
+      }
+    }
+
+    &:after {
+      right: rem(-10);
+    }
+
+    &:before {
+      left: rem(-10);
+    }
+  }
+
+  .table__header__icon {
+    position: relative;
+    display: inline-block;
+    width: rem(24);
+    height: rem(1);
+    margin-right: rem(10);
+    svg {
+      position: absolute;
+      top: rem(-13);
+      width: rem(24);
+      height: rem(24);
+      fill: $color__black;
+    }
+  }
+
+  .table__title-nowrap {
+    white-space: nowrap;
+
+    @include media($media__m) {
+      letter-spacing: letter-spacing(-2);
+      text-transform: none;
+      white-space: nowrap;
+      height: rem(41);
+      font-family: $font__text--light;
+      font-size: rem(21);
+      padding-bottom: rem(13);
+    }
+  }
+
+  .table__plan-name {
+    font-family: $font__text--medium;
+    font-size: rem(16);
+    letter-spacing: letter-spacing(-2);
+
+    @include media($media__m) {
+      font-size: rem(21);
+      letter-spacing: letter-spacing(-55);
+    }
+  }
+
+  .table__connection > span {
+    position: absolute;
+    display: block;
+    top: rem(60);
+    right: rem(25);
+    bottom: rem(60);
+    display: block;
+    width: rem(35);
+    border: rem(1) solid $color__gray--light;
+    border-right: 0;
+  }
+
+  .table__connection--double > span {
+    top: rem(60);
+    height: rem(120);
+    border-width: rem(1) 0 rem(1) rem(1);
+  }
+
+  .table-element--over {
+    td {
+      position: relative;
+      color: $color__white;
+    }
+
+    .table__connection > span {
+      border-color: rgba($color__black, .2);
+    }
+
+    small {
+      color: $color__white;
+    }
+
+    .stamp {
+      color: $color__black;
+    }
+
+    .button {
+      border-color: transparent;
+      background-color: $color__yellow;
+
+      & + small {
+        color: $color__white;
+      }
+    }
+
+    .table__hashtag-th {
+      box-shadow: rem(0) rem(1) rem(1) rem(0) rgba($color__black, .2);
+      &:after,
+      &:before {
+        visibility: hidden;
+      }
+    }
+
+    svg {
+      fill: $color__white;
+    }
+
+    .price-animated-text {
+      color: $color__white;
+    }
+  }
+
+  .table-element--collapse {
+    display: none;
+  }
+
+
+  .table--scroll-active {
+    .table__selector {
+      @include media($media__s) {
+        right: $size-s-negative-gap;
+      }
+
+      @include media($media__m) {
+        right: $size-m-negative-gap;
+      }
+    }
+  }
+
+  .table__fixed__bracer {
+    position: absolute;
+    top: rem(54);
+    right: 5%;
+    bottom: rem(54);
+    display: block;
+    width: rem(20);
+    border: rem(1.2) solid $color__gray--light;
+    border-right: 0;
+
+    @include media($media__xl) {
+      right: 15%;
+    }
+  }
+
+  .table__aside {
+    z-index: 0;
+
+    h5 {
+      font-family: $font__text--bold;
+      font-size: rem(12);
+      line-height: 1.5em;
+
+      @include media($media__m) {
+        font-size: rem(16);
+        line-height: 1.4em;
+      }
+    }
+
+    p {
+      font-size: rem(10);
+
+      @include media($media__m) {
+        font-size: rem(13);
+        margin-top: rem(13);
+        white-space: normal;
+        line-height: 1.4em;
+      }
+    }
+  }
+
+  .table__aside__head-title {
+    font-family: $font__text--medium;
+    font-size: rem(11);
+    text-transform: uppercase;
+    height: rem(31);
+    line-height: rem(27);
+    letter-spacing: 0.03667em;
+  }
+
+  .table__aside__title {
+    font-family: $font__text--medium;
+    font-size: rem(13);
+    letter-spacing: 0.03em;
+
+    @include media($media__m) {
+      font-size: rem(19);
+      line-height: rem(24);
+    }
+
+    @include media($media__l) {
+      font-size: rem(21);
+      line-height: rem(24);
+    }
+  }
+
+  .table__aside__subtitle {
+    font-family: $font__text--regular;
+    font-size: rem(11);
+    letter-spacing: 0em;
+
+    @include media($media__m) {
+      font-size: rem(13);
+    }
+  }
+
+  .table__expansor__button {
+    border: none;
+    color: $color__purple;
+    font-size: rem(16);
+    font-family: $font__text--light;
+    letter-spacing: -0.003em;
+
+    @include media($media__m) {
+      font-size: rem(21);
+      font-family: $font__text--light;
+    }
+  }
+
+  .table__expansor__button__arrow {
+    position: absolute;
+    top: rem(15);
+    right: rem(2);
+    width: rem(8);
+    height: rem(8);
+
+    svg {
+      fill: $color__purple;
+    }
+  }
+
+  .table__selector, .table__selector-bestOffer {
+    position: absolute;
+    left: $size-xs-negative-gap;
+    height: rem(84);
+    width: 100vw;
+    border-width: rem(2) 0;
+    visibility: hidden;
+    transition: top 377ms ease;
+    pointer-events: none;
+    z-index: 0;
+
+    @include media($media__s) {
+      left: $size-s-negative-gap;
+    }
+
+    @include media($media__m) {
+      left: $m_fixed_gutter * -2;
+      right: $m_fixed_gutter * -2;
+      height: rem(120);
+      width: auto;
+    }
+
+    @include media($media__l) {
+      left: $l_fixed_gutter * -1;
+      right: $l_fixed_gutter * -1;
+    }
+
+    @include media($media__xl) {
+      left: $xl_fixed_gutter * -1;
+      right: $xl_fixed_gutter * -1;
+    }
+  }
+
+  .table__selector--visible {
+    visibility: visible;
+  }
+
+  .variant-hover {
+    position: absolute;
+    pointer-events: none;
+    display: block;
+    top: 0;
+    left: rem(-29);
+    height: rem(85);
+    width: calc(100% + #{rem(58)});
+    margin-top: rem(29);
+    background-color: $color__purple;
+    opacity: 0;
+    transition: opacity 377ms ease;
+    overflow: hidden;
+    border-radius: rem(3);
+
+    @include media($media__m) {
+      height: rem(121);
+    }
+
+    &.table-element--over {
+      opacity: 1;
+    }
+
+    .animated-background-wrapper {
+      display: none;
+      z-index: 0;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+.modal-our-phones {
+  .modal__vertical__body {
+    padding-bottom: rem(80);
+    padding-top: rem(40);
+
+    @include media($media__m) {
+      padding: rem(60) rem(32);
+    }
+
+    @include media($media__xl) {
+      padding: rem(233) rem(32);
+    }
+  }
+}

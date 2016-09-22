@@ -1,0 +1,206 @@
+$small-button-width: rem(45);
+$small-button-width-over: rem(60);
+
+$large-button-width: rem(85);
+$large-button-width-over: rem(110);
+
+.scroller__wrapper {
+  position: relative;
+}
+
+.scroller__scroll-area {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.scroller__scroll-content {
+  display: inline-block;
+
+  .addons__scroll & {
+    .fixo & {
+
+      @include media($media__l) {
+        display: block;
+        width: rem(400);
+        margin: 0 auto;
+        position: relative;
+      }
+
+      @include media($media__xl) {
+        width: rem(832);
+      }
+    }
+  }
+
+  .addons__scroll & {
+    .celular & {
+      @include media($media__l) {
+        display: block;
+        width: rem(400);
+        margin: 0 auto;
+        position: relative;
+      }
+
+      @include media($media__xl) {
+        width: rem(784);
+      }
+    }
+  }
+
+  .addons__container & {
+    .combo & {
+      @include media($media__l) {
+        position: relative;
+        margin-left: rem(297);
+      }
+
+      @include media($media__xl) {
+        margin-left: rem(320);
+      }
+    }
+
+    .oct & {
+      @include media($media__l) {
+        margin-left: rem(320);
+      }
+
+      @include media($media__xl) {
+        margin-left: rem(300);
+      }
+    }
+  }
+}
+
+.scroller__button__wrapper {
+  display: none;
+
+  @include media($media__l) {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    width: $small-button-width-over;
+    overflow: hidden;
+    z-index: 10;
+
+    .internet & {
+      top: 0;
+    }
+
+    .cheat-sheet__movies & {
+      bottom: auto;
+      top: rem(44);
+      height: rem(203);
+      width: $large-button-width-over;
+
+      .internet & {
+        top: rem(-25);
+      }
+    }
+
+    .tv-hd .cheat-sheet__movies &,
+    .combo .cheat-sheet__movies & {
+      height: rem(168);
+    }
+  }
+}
+
+.scroller__button__wrapper--left {
+  left: 0;
+}
+
+.scroller__button__wrapper--right {
+  right: 0;
+}
+
+.scroller__button {
+  @include absolute-center-vertical(rem(70));
+  position: absolute;
+  width: $small-button-width;
+  background-color: $color__purple;
+  cursor: pointer;
+  opacity: 0.98;
+  padding: rem(20) 0;
+  transition: width 231ms ease, left 231ms ease-out, right 231ms ease-out;
+  z-index: 100;
+
+  .cheat-sheet__movies & {
+    @include absolute-center-vertical(rem(100));
+    width: $large-button-width;
+    padding: rem(30) 0;
+  }
+
+  &:hover {
+    width: $small-button-width-over;
+
+    .cheat-sheet__movies & {
+      width: $large-button-width-over;
+    }
+  }
+}
+
+.scroller__button--right {
+  border-radius: rem(4) 0 0 rem(4);
+  right: $small-button-width * -1;
+
+  .cheat-sheet__movies & {
+    right: $large-button-width * -1;
+  }
+
+  .scroller__button__icon {
+    margin-left: rem(14);
+
+    .cheat-sheet__movies & {
+      margin-left: rem(36);
+    }
+  }
+
+  .scroller__button__wrapper--active & {
+    right: 0;
+
+    &:active {
+      right: rem(-2);
+    }
+  }
+}
+
+.scroller__button--left {
+  border-radius: 0 rem(4) rem(4) 0;
+  left: $small-button-width * -1;
+  text-align: right;
+
+  .cheat-sheet__movies & {
+    left: $large-button-width * -1;
+  }
+
+  .scroller__button__icon {
+    margin-right: rem(14);
+
+    .cheat-sheet__movies & {
+      margin-right: rem(36);
+    }
+  }
+
+  .scroller__button__wrapper--active & {
+    left: 0;
+
+    &:active {
+      left: rem(-2);
+    }
+  }
+}
+
+.scroller__button__icon {
+  display: inline-block;
+
+  svg {
+    height: rem(30);
+    width: rem(30);
+    fill: $color__white;
+
+    .cheat-sheet__movies & {
+      height: rem(50);
+      width: rem(50);
+    }
+  }
+}

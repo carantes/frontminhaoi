@@ -1,0 +1,35 @@
+.table {
+  .toc--conectado & {
+    .container {
+      > div:nth-last-child(1) {
+        .old-ie & {
+          background-image: none;
+        }
+      }
+    }
+  }
+}
+
+.table--conectado {
+  .table__scroll {
+
+    tr {
+      th:nth-child(1),
+      td:nth-child(1) {
+        @include media($media__down__s) {
+          > * {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .table__scroll__col-0 {
+      @include media($media__down__s) {
+        width: 0;
+      }
+    }
+
+
+  }
+}

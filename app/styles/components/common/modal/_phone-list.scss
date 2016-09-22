@@ -1,0 +1,94 @@
+.phone-list {
+  border-bottom: rem(1) solid $color__black;
+  border-top: rem(1) solid $color__black;
+
+  @include media($media__xl) {
+    width: rem(560);
+    margin: 0 auto;
+  }
+
+  + .phone-list {
+    border-top: rem(8) solid $color__black;
+  }
+}
+
+.phone-list__item {
+  display: flex;
+  border-bottom: rem(1) dashed $color__gray--light;
+  min-height: rem(69);
+  padding-top: rem(26);
+
+  @include media($media__m) {
+    min-height: rem(110);
+    padding-top: rem(46);
+  }
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+
+.phone-list__item__icon {
+  display: none;
+
+  @include media($media__m) {
+    position: relative;
+    top: rem(-11);
+    display: inline-block;
+    margin-right: rem(21);
+
+    svg {
+      height: rem(38);
+      width: rem(38);
+    }
+  }
+}
+
+.phone-list__item__title {
+  width: 50%;
+
+  @include media($media__m) {
+    display: flex;
+    width: 35%;
+  }
+}
+
+.phone-list__item__side {
+  width: 50%;
+
+  @include media($media__m) {
+    display: flex;
+    width: 65%;
+  }
+}
+
+.phone-list__item__text {
+  @include media($media__m) {
+    width: 50%;
+
+    .phone-list__item__side--three & {
+      width: 33%;
+    }
+
+    .phone-list__item__side--four & {
+      width: 25%;
+    }
+  }
+
+  a {
+    color: $color__pink;
+    border-bottom: 0;
+    font-size: rem(16);
+  }
+}
+
+.phone-list__item__text__desc {
+  display: block;
+  color: $color__gray;
+  font-size: rem(13);
+  margin: rem(2) 0 rem(23);
+
+  @include media($media__m) {
+    margin-bottom: rem(32);
+  }
+}

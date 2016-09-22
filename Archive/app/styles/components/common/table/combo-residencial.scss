@@ -1,0 +1,94 @@
+.table {
+  .toc--residencial & {
+    .container {
+
+      > div:nth-last-child(2) {
+
+        tr {
+          th:nth-child(2),
+          td:nth-child(2) {
+            @include media($media__down__s) {
+              > * {
+                display: none;
+              }
+            }
+          }
+        }
+
+        .table__scroll__col-1 {
+          @include media($media__down__s) { width: 0; }
+        }
+
+        @include media($media__l) {
+          .old-ie & {
+            background-image: none;
+          }
+        }
+      }
+
+      > div:nth-last-child(1) {
+
+        @include media($media__l) {
+          @include bg-table-line(rem(51), rem(2));
+          margin-top: rem(-10);
+          padding-bottom: rem(119);
+        }
+
+        thead {
+          visibility: visible;
+        }
+
+        tr {
+          th:nth-child(2), th:nth-child(3),
+          td:nth-child(2), td:nth-child(3) {
+            > * {
+              @include media($media__down__s) {
+                display: none;
+              }
+            }
+          }
+        }
+
+        .table__scroll__col-1,
+        .table__scroll__col-2 {
+          @include media($media__down__s) { width: 0; }
+        }
+      }
+
+      .table__footer {
+        height: rem(65);
+        text-align: right;
+      }
+
+      .table__footer__link {
+        display: inline-block;
+        border-bottom: none;
+        font-family: $font__text--light;
+        font-size: rem(16);
+        letter-spacing: -0.02em;
+        margin: rem(40) rem(18) 0 0;
+
+        @include media($media__m) {
+          font-size: rem(21);
+        }
+
+        &:hover {
+          color: $color__blue;
+        }
+      }
+
+      .table__footer__link__image {
+        display: inline-block;
+        position: relative;
+
+        svg * {
+          fill: $color__blue;
+        }
+      }
+    }
+  }
+}
+
+.table--residencial {
+  @include set-tables-fixed-and-scroll-widths(rem(126), rem(140), rem(160), rem(200));
+}
