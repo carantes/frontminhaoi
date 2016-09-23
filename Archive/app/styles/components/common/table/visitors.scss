@@ -1,0 +1,58 @@
+.table--visitors {
+  @include set-tables-fixed-and-scroll-widths(rem(78), rem(184), rem(327), rem(387));
+  margin-top: rem(60);
+
+  @include media($media__m) {
+    margin-top: rem(100);
+  }
+
+  @include media($media__l) {
+    padding-bottom: rem(85);
+  }
+
+  .table__fixed {
+    position: absolute;
+  }
+
+  .table__scroll {
+    position: relative;
+
+    small {
+      position: relative;
+    }
+
+    tr {
+      td:last-child {
+        text-align: left;
+      }
+    }
+  }
+
+  .table__scroll__title,
+  .table__fixed__title {
+    position: relative;
+  }
+
+  .table__fixed__col-0 {
+    width: 100%;
+    @include media($media__l) { width: rem(164); }
+    @include media($media__xl) { width: rem(200); }
+  }
+
+  .table__fixed__col-1 {
+    @include media($media__l) { width: 100%; }
+  }
+
+  .table__scroll__col-0 {
+    @include media($media__l) { width: rem(214); }
+    @include media($media__xl) { width: rem(250); }
+  }
+
+  .table__scroll__col-1 {
+    @include media($media__l) { width: auto; }
+  }
+
+  .table__scroll__col-2 {
+    @include media($media__l) { width: rem(230); }
+  }
+}

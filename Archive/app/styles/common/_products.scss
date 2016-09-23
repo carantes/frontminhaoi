@@ -1,0 +1,26 @@
+@import '../config/config';
+
+@import '../components/products/cards';
+@import '../components/products/cart';
+@import '../components/products/toc';
+@import '../components/products/addons';
+@import '../components/products/cheat-sheet';
+@import '../components/products/be-client';
+@import '../components/products/offline';
+
+.product-content {
+  // fixes the overflow with the new animatedBackground
+  position: relative;
+}
+
+.wrap {
+  position: relative;
+  z-index: 0;
+
+  > .animated-background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+}

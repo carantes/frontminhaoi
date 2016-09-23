@@ -1,0 +1,11 @@
+.table {
+  .toc--completo & {
+    .container {
+      > div:nth-last-child(1) {
+        .old-ie & {
+          background-image: none;
+        }
+      }
+    }
+  }
+}

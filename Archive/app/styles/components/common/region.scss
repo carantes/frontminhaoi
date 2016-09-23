@@ -1,0 +1,497 @@
+$formContentHeightS: rem(71);
+$formContentHeightM: rem(111);
+$formContentHeightL: rem(141);
+
+.region {
+  position: relative;
+  height: 0;
+  background-color: rgba($color__black, 0.13);
+  color: $color__white;
+  overflow: hidden;
+
+  .home & {
+    background-color: $color__gray--bright;
+    color: $color__black;
+  }
+
+  .oi-indica & {
+    background-color: $color__pink;
+  }
+
+  .tv-hd & {
+    background-color: $color__black;
+    color: $color__white;
+  }
+}
+
+
+.region--open {
+  height: rem(160);
+
+  @include media($media__l) {
+    height: rem(210);
+  }
+}
+
+.region--close {
+  height: 0;
+  transition: height 610ms ease-out;
+
+  @include media($media__l) {
+    height: 0;
+  }
+}
+
+.region--timer {
+  .region__timer {
+    width: 100%;
+    transition: width 5s linear 1s;
+  }
+}
+
+.region__timer {
+  position: absolute;
+  bottom: 0;
+  height: rem(3);
+  width: 0;
+  background-color: $color__white;
+
+  .aqua & { background: linear-gradient(to right, $color__aqua 0%, $color__aqua 100%); }
+  .magenta & { background: linear-gradient(to right, $color__magenta 0%, $color__magenta 100%); }
+  .yellow & { background: linear-gradient(to right, $color__yellow 0%, $color__yellow 100%); }
+  .black & { background: linear-gradient(to right, $color__gray 0%, $color__black 100%); }
+
+  .purple & { background: linear-gradient(to right, $color__purple 0%, $color__purple 100%); }
+  .blue & { background: linear-gradient(to right, $color__blue 0%, $color__blue 100%); }
+  .pink & { background: linear-gradient(to right, $color__pink 0%, $color__pink 100%); }
+  .green & { background: linear-gradient(to right, $color__blue 0%, $color__blue 100%); }
+  .orange & { background: linear-gradient(to right, $color__orange 0%, $color__orange 100%); }
+}
+
+.region__placeholder {
+  opacity: 1;
+  padding-top: rem(36);
+
+  @include media($media__m) {
+    padding-top: rem(50);
+  }
+
+  @include media($media__l) {
+    padding-top: rem(68);
+  }
+}
+
+.region__placeholder__heading {
+  font-size: rem(10);
+  letter-spacing: letter-spacing(10);
+  text-transform: uppercase;
+
+  @include media($media__m) {
+    font-size: rem(12);
+    letter-spacing: letter-spacing(30);
+    margin-bottom: rem(6);
+  }
+
+  .home & {
+    color: $color__gray;
+  }
+}
+
+.region__placeholder__title {
+  display: inline-block;
+  font-size: rem(26);
+  letter-spacing: letter-spacing(-20);
+  vertical-align: middle;
+
+  @include media($media__m) {
+    font-size: rem(35);
+    letter-spacing: letter-spacing(-55);
+  }
+
+  @include media($media__l) {
+    font-size: rem(42);
+  }
+}
+
+.region__placeholder__change {
+  @include rounded-border($color__white);
+  display: inline-block;
+  font-size: rem(12);
+  margin-top: rem(16);
+  padding: rem(8) rem(20);
+  vertical-align: middle;
+  transition: background-color 377ms ease;
+
+  @include media($media__m) {
+    font-size: rem(16);
+    margin: rem(-6) 0 0 rem(38);
+    padding: rem(11) rem(26);
+  }
+
+  @include media($media__l) {
+    padding: rem(15) rem(38);
+  }
+
+  &:hover {
+    background-color: $color__white;
+    color: $color__purple;
+  }
+
+  .minha-oi &:hover {
+    color: $color__pink;
+  }
+
+  .tv-hd &:hover {
+    color: $color__black;
+  }
+
+  .home & {
+    color: $color__black;
+
+    &:hover {
+      color: $color__white;
+    }
+  }
+
+  .black & {
+    border-color: $color__black;
+    color: $color__black;
+
+    &:hover {
+      background: $color__black;
+      color: $color__white;
+    }
+  }
+
+  .aqua & {
+    @include rounded-border($color__aqua);
+
+    &:hover {
+      background-color: $color__aqua;
+    }
+  }
+
+  .magenta & {
+    @include rounded-border($color__magenta);
+
+    &:hover {
+      background-color: $color__magenta;
+    }
+  }
+
+  .yellow & {
+    @include rounded-border($color__yellow);
+
+    &:hover {
+      background-color: $color__yellow;
+      color: $color__black;
+    }
+  }
+
+  .yellow & {
+    @include rounded-border($color__yellow);
+
+    &:hover {
+      background-color: $color__yellow;
+    }
+  }
+
+
+
+  .purple & {
+    @include rounded-border($color__purple);
+
+    &:hover {
+      background-color: $color__purple;
+    }
+  }
+
+  .blue & {
+    @include rounded-border($color__blue);
+
+    &:hover {
+      background-color: $color__blue;
+    }
+  }
+
+  .pink & {
+    @include rounded-border($color__pink);
+
+    &:hover {
+      background-color: $color__pink;
+    }
+  }
+
+  .green & {
+    @include rounded-border($color__blue);
+
+    &:hover {
+      background-color: $color__blue;
+    }
+  }
+
+  .orange & {
+    @include rounded-border($color__orange);
+
+    &:hover {
+      background-color: $color__orange;
+    }
+  }
+}
+
+.region__form {
+  position: fixed;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  display: none;
+  background-color: $color__purple;
+  z-index: 99999;
+
+  .black &,
+  .tv-hd & {
+    background-color: $color__black;
+  }
+
+  .minha-oi &,
+  .oi-indica & {
+    background-color: $color__pink;
+  }
+
+  .aqua & { background-color: $color__aqua; }
+  .magenta & { background-color: $color__magenta; }
+  .yellow & { background-color: $color__yellow; }
+
+  .purple & { background-color: $color__purple; }
+  .blue & { background-color: $color__blue; }
+  .pink & { background-color: $color__pink; }
+  .green & { background-color: $color__blue; }
+  .orange & { background-color: $color__orange; }
+}
+
+.region__form--open {
+  display: block;
+}
+
+.region__form__content {
+  position: relative;
+  height: $formContentHeightS;
+  padding-top: rem(24);
+
+  @include media($media__m) {
+    height: $formContentHeightM;
+    padding-top: rem(29);
+  }
+
+  @include media($media__l) {
+    height: $formContentHeightL;
+    padding-top: rem(44);
+  }
+
+  &:after {
+    @include horizontal-after-line(rgba($color__black, 0.13), 200%);
+    bottom: 0;
+    left: -50%;
+
+    .black &,
+    .tv-hd & {
+      background: rgba($color__gray, .1);
+    }
+  }
+}
+
+.region__form__content__icon {
+  display: inline-block;
+  margin: 0 rem(6) 0 rem(2);
+  vertical-align: middle;
+
+  @include media($media__m) {
+    margin: 0 rem(27) 0 0;
+  }
+
+  @include media($media__l) {
+    margin: 0 rem(47) 0 rem(18);
+  }
+
+  @include media($media__xl) {
+    margin: 0 rem(66) 0 0;
+  }
+
+  svg {
+    width: rem(12);
+    height: rem(12);
+    fill: $color__white;
+
+    @include media($media__m) {
+      width: rem(30);
+      height: rem(30);
+    }
+  }
+}
+
+.region__form__content__input {
+  width: 60%;
+  display: inline-block;
+  background-color: transparent;
+  border: 0;
+  color: $color__white;
+  font-size: rem(16);
+  font-family: $font__heading;
+  letter-spacing: letter-spacing(-40);
+  vertical-align: middle;
+
+  @include media($media__m) {
+    width: 70%;
+    font-size: rem(42);
+    letter-spacing: letter-spacing(-15);
+  }
+
+  @include media($media__l) {
+    letter-spacing: letter-spacing(-30);
+  }
+
+  &::-webkit-input-placeholder {
+    color: $color__white;
+    opacity: 0.55;
+  }
+}
+
+.region__form__content__cancel {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  display: block;
+  border-left: rem(1.2) solid rgba($color__black, 0.13);
+  letter-spacing: letter-spacing(-30);
+  padding: rem(27) rem(20) 0 rem(18);
+
+  @include media($media__m) {
+    font-size: rem(21);
+    letter-spacing: letter-spacing(10);
+    padding: rem(45) rem(4) 0 rem(35);
+  }
+
+  @include media($media__l) {
+    bottom: auto;
+    top: rem(39);
+    font-size: rem(28);
+    letter-spacing: letter-spacing(-20);
+    padding: rem(18) rem(18) rem(15) rem(48);
+  }
+
+  @include media($media__xl) {
+    padding: rem(18) 0 rem(15) rem(80);
+    margin-right: rem(-16);
+  }
+
+  .black &,
+  .tv-hd & {
+    border-left: rem(1.2) solid rgba($color__gray, 0.13);
+  }
+
+  &:active {
+    @include media($media__l) {
+      top: rem(41);
+    }
+  }
+}
+
+.region__city {
+  position: absolute;
+  bottom: 0;
+  top: $formContentHeightS;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+
+  @include media($media__m) {
+    top: $formContentHeightM;
+  }
+
+  @include media($media__l) {
+    top: $formContentHeightL;
+  }
+}
+
+.region__city__list {
+  padding-top: rem(15);
+
+  @include media($media__m) {
+    padding-top: rem(22);
+  }
+}
+
+.region__city__list__item {
+  font-family: $font__heading;
+  font-size: rem(24);
+  letter-spacing: letter-spacing(10);
+
+  @include media($media__m) {
+    font-size: rem(42);
+    letter-spacing: 0;
+  }
+}
+
+.region__city__list__item__link {
+  display: block;
+  padding: rem(13) 0 rem(13);
+  transition: opacity 377ms ease;
+
+  @include media($media__m) {
+    padding: rem(14) 0 rem(14) rem(58);
+  }
+
+  @include media($media__l) {
+    padding: rem(15) 0 rem(15) rem(95);
+  }
+
+  @include media($media__xl) {
+    padding-left: rem(99);
+  }
+
+  &:after {
+    display: none;
+
+    @include media($media__m) {
+      @include base-after-line(rgba($color__black, .1));
+      left: -100%;
+      right: -100%;
+      top: 50%;
+      display: block;
+      height: rem(90);
+      margin-top: rem(-45);
+      opacity: 0;
+      transition: opacity 377ms ease;
+
+      .black &,
+      .tv-hd & {
+        background: rgba($color__gray, .1);
+      }
+    }
+  }
+
+  .region__city__list--keyboard &,
+  .region__city__list--mouse & {
+    opacity: .3;
+  }
+
+  .region__city__list__item--selected & {
+    position: relative;
+    opacity: 1;
+    z-index: 50;
+
+    &:after {
+      opacity: 1;
+    }
+  }
+}
+
+.region__city__list__item__link__unselected-text {
+  opacity: .3;
+
+  .region__city__list__item--selected & {
+    opacity: 1;
+  }
+}

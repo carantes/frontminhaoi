@@ -1,0 +1,21 @@
+.plano-pos-100 {
+  .modal__body__header-button-list__title {
+    margin-bottom: rem(40);
+  }
+
+  .modal__body__paragraph {
+    margin: rem(80) 0;
+  }
+
+  .modal__body__header-button-list__item {
+    display: block;
+    float: none;
+    width: 100%;
+
+    @include media($media__m) {
+      display: inline-block;
+      float: left;
+      width: rem(200);
+    }
+  }
+}

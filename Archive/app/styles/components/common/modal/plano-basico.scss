@@ -1,0 +1,61 @@
+.plano-basico {
+  .big-title {
+    font-size: rem(35);
+
+    @include media($media__xl) {
+      font-size: rem(57);
+      letter-spacing: letter-spacing(-60);
+    }
+  }
+
+  .modal__body__title__price {
+    float: right;
+    padding-right: rem(30);
+    position: relative;
+    top: rem(10);
+  }
+
+  .modal__body__title {
+    letter-spacing: -1;
+  }
+
+  .modal__channel-grid {
+    display: table;
+    border-bottom: 0;
+    border-top: rem(2) solid $color__black;
+    padding-top: rem(21);
+  }
+
+  .modal__channel-grid li {
+    display: table-cell;
+    width: 50%;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+
+    @include media($media__s) {
+      width: 33%;
+    }
+
+    @include media($media__m) {
+      width: rem(168);
+      height: rem(100);
+    }
+
+    @include media($media__l) {
+      width: rem(228);
+    }
+
+    @include media($media__xl) {
+      width: 25%;
+    }
+  }
+
+  .modal__channel-grid li a {
+    display: block;
+    border: 0;
+    width: 100%;
+    text-align: center;
+    height: auto;
+  }
+}

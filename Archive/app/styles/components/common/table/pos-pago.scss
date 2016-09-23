@@ -1,0 +1,92 @@
+.table--pos-pago {
+  @include set-tables-fixed-and-scroll-widths(rem(78), rem(174), rem(180), rem(260));
+
+  @include media($media__m) {
+    @include bg-table-line(rem(61), rem(2));
+  }
+
+  &:before {
+    height: rem(200);
+    @include bg-table-line(rem(60), rem(2));
+
+    @include media($media__m) {
+      display: none;
+    }
+  }
+
+  .table__fixed {
+    position: absolute;
+  }
+
+  .table__scroll {
+    position: relative;
+  }
+
+  .table__fixed__col-0 {
+    width: 100%;
+
+    @include media($media__l) {
+      width: rem(144);
+    }
+
+    @include media($media__xl) {
+      width: rem(168);
+    }
+  }
+
+  .table__fixed__col-1 {
+    @include media($media__l) {
+      width: 100%;
+      text-align: right;
+    }
+  }
+
+  .table__scroll__col-0 {
+    @include media($media__l) { width: rem(160); }
+    @include media($media__xl) { width: rem(160); }
+  }
+
+  .table__scroll__col-1 {
+    @include media($media__l) { width: rem(200); }
+    @include media($media__xl) { width: rem(196); }
+  }
+
+  .table__scroll__col-2 {
+    @include media($media__l) { width: rem(200); }
+  }
+
+  .table__scroll__col-3 {
+    @include media($media__l) { width: rem(120); }
+  }
+
+  tbody {
+    tr:last-child {
+      border-bottom-color: transparent;
+    }
+  }
+
+  td *,
+  th * {
+    white-space: nowrap;
+  }
+
+  th {
+    position: relative;
+    height: rem(60);
+    padding-bottom: rem(10);
+    vertical-align: bottom;
+
+    small {
+      position: absolute;
+      bottom: rem(27);
+      font-size: rem(12);
+      color: $color__gray;
+      text-transform: none;
+      line-height: 1.16em;
+    }
+  }
+
+  .variant-hover {
+    margin-top: rem(61);
+  }
+}

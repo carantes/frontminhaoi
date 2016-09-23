@@ -1,0 +1,178 @@
+@keyframes kf-button-breath {
+  0% { background-position: center 0%; }
+  66% { background-position: center 50%; }
+  100% { background-position: center 0%; }
+}
+
+@keyframes kf-button-shake {
+  0% { transform: translateX(0%); }
+  21% { transform: translateX(-0.5%); }
+  34% { transform: translateX(0.5%); }
+  55% { transform: translateX(1%); }
+  66% { transform: translateX(0.5%); }
+  87% { transform: translateX(1%); }
+  100% { transform: translateX(0%); }
+}
+
+button,
+.button {
+  position: relative;
+  display: inline-block;
+  padding: rem(17) rem(34);
+  font-size: rem(21);
+  font-family: inherit;
+  color: $color__black;
+  min-width: rem(82);
+  min-height: rem(60);
+  border: rem(1.2) solid $color__black;
+  border-radius: rem(2);
+  background-color: $color__white;
+  transform-origin: center center;
+  cursor: pointer;
+}
+
+.button--thin {
+  font-size: rem(16);
+  min-width: rem(72);
+  min-height: rem(51);
+}
+
+.button--aqua {
+  border-color: $color__aqua;
+
+  &:active {
+    background-color: $color__white;
+    border-color: darken($color__aqua, .21);
+    transform: translateY(1px);
+  }
+
+  &:hover {
+    border-color: $color__aqua;
+    color: $color__white;
+  }
+}
+
+.button--fill {
+  color: $color__black;
+  border-left: rem(2) solid transparent;
+  border-right: rem(2) solid transparent;
+  border-top: rem(1) solid transparent;
+  border-bottom: rem(2) solid $color__yellow;
+  background-position: center 0;
+  background-size: 100% 200%;
+  background-color: $color__yellow;
+
+  &:hover {
+    border-bottom: rem(2) solid transparent;
+  }
+
+  &:active {
+    color: $color__black;
+    border-bottom: rem(1) solid transparent;
+    border-top: rem(2) solid rgba($color__yellow, 1);
+  }
+
+  &:disabled {
+    color: rgba($color__black, 0.21);
+    border-bottom: rem(2) solid transparent;
+  }
+}
+
+.button--gray {
+  min-width: 0;
+  border-color: $color__gray--light;
+  background-color: colorBrightGray;
+
+  &:hover {
+    border-color: $color__black;
+  }
+
+  &:active {
+    background-color: $color__black;
+  }
+}
+
+.button--transparent {
+  min-width: 0;
+  border-color: $color__white;
+  background: transparent;
+  color: $color__white;
+  font-family: $font__text--light;
+
+  &:hover {
+    border: 0;
+    background-color: rgba($color__black, .15);
+  }
+
+  &.button--black {
+    min-height: 0;
+    border-color: $color__blue;
+    color: $color__black;
+    padding: rem(15) rem(5);
+    transition: background 0.2s;
+
+    @include media($media__l) {
+      padding-top: rem(15);
+      padding-bottom: rem(15);
+    }
+
+    &:hover {
+      border: rem(1.2) solid transparent;
+    }
+  }
+}
+
+.button--addon {
+  padding: rem(12) rem(8);
+  min-width: rem(170);
+  min-height: rem(40);
+  background-color: $color__gray--bright;
+  font-size: rem(13);
+  border-color: $color__gray--light;
+  transition-duration: 610ms;
+  transition-property: background-color, border-color, color;
+
+  &:active {
+    transform: translateY(rem(1.2));
+  }
+
+  .toc--total-hd-cliente-atual &[data-addon-slug="gravador-digital"] {
+    transform: none;
+    cursor: default;
+    pointer-events: none;
+  }
+}
+
+.button--addon--selected {
+  padding: rem(12) rem(8);
+  min-width: rem(170);
+  min-height: rem(40);
+  background-color: $color__purple;
+  font-size: rem(13);
+  color: $color__white;
+  transition-duration: 610ms;
+  transition-property: background-color, color;
+
+  &:active {
+    transform: translateY(rem(1.2));
+  }
+}
+
+.button--addon--disabled {
+  padding: rem(12) rem(8);
+  min-width: rem(170);
+  min-height: rem(40);
+  background-color: $color__gray--bright;
+  font-size: rem(13);
+  color: $color__gray--light;
+  border-color: $color__gray--light;
+
+  &:active {
+    transform: translateY(rem(1.2));
+  }
+}
+
+.button--inverted {
+  background-color: $color__black;
+  color: $color__white;
+}

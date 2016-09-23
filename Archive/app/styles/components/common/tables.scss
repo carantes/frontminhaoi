@@ -1,0 +1,150 @@
+$tablePaddingVertical: 2.85rem;
+
+table {
+  width: 100%;
+
+  caption {
+    display: none;
+  }
+}
+
+th,
+td {
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+
+  a {
+    color: $color__gray;
+
+    &:hover {
+      color: $color__gray;
+    }
+  }
+}
+
+thead {
+  border-bottom: 0.08rem solid $color__gray--light;
+
+  .hashtag {
+    $hashtagWidth: rem(64);
+    position: absolute;
+    bottom: rem(-9);
+    left: 50%;
+    margin-left: $hashtagWidth/2 * -1;
+    padding: rem(1) rem(2);
+    width: $hashtagWidth;
+    z-index: 5;
+    font-size: rem(11);
+
+    @include media($media__l) {
+      $hashtagWidth: rem(70);
+      margin-left: $hashtagWidth/2 * -1;
+      width: $hashtagWidth;
+      font-size: rem(13);
+    }
+
+    &:after,
+    &:before {
+      content: ' ';
+      position: absolute;
+      top: 56%;
+      left: rem(-10);
+      display: block;
+      width: rem(10);
+      height: rem(2.6);
+      margin-top: rem(-1.2);
+      background-color: $color__white;
+    }
+
+    &:after {
+      left: 100%;
+    }
+  }
+}
+
+tbody {
+  .icon_check {
+    .isvg {
+      display: block;
+    }
+
+    svg {
+      fill: $color__blue;
+      height: rem(11);
+      width: rem(16);
+    }
+
+    small {
+      $iconCheckWidth: rem(46);
+      position: absolute;
+      left: 50%;
+      margin: rem(6) 0 0 ($iconCheckWidth/2 * -1);
+      font-size: rem(11);
+      color: $color__gray;
+      width: $iconCheckWidth;
+      text-align: center;
+
+      @include media($media__m) {
+        $iconCheckWidth: rem(54);
+        margin: rem(8) 0 0 ($iconCheckWidth/2 * -1);
+        width: $iconCheckWidth;
+        font-size: rem(13);
+      }
+    }
+  }
+
+  tr {
+    border-top: rem(1.2) dashed $color__gray--light;
+
+    .strong {
+      font-family: $font__text--bold;
+      display: block;
+    }
+
+    tr:first-child {
+      border-top: 0;
+    }
+
+    .radio {
+      display: none;
+
+      @include media($media__m) {
+        display: inline-block;
+      }
+    }
+  }
+}
+
+.table {
+  position: relative;
+  background-color: $color__white;
+  overflow: hidden;
+  padding-bottom: rem(1.2);
+  z-index: 0;
+
+  .main--page-with-cards & {
+    // padding-bottom: rem(70);
+
+    @include media($media__m) {
+      padding-top: rem(42);
+      // padding-bottom: rem(90);
+    }
+  }
+
+  .tv-hd & {
+    @include media($media__m) {
+      padding-top: 0;
+    }
+  }
+}
+
+.variantSelector {
+  border: rem(1.2) solid $color__pink;
+  opacity: 0;
+  position: absolute;
+  pointer-events: none;
+  z-index: 4;
+}
+
+@import './table/product';

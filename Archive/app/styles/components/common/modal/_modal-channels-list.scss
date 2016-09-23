@@ -1,0 +1,21 @@
+.tv-hd-channels-list {
+  .modal__horizontal__header {
+    @include media($media__m) {
+      padding: rem(65) rem(32);
+    }
+
+    @include media($media__xl) {
+      padding: rem(70) rem(100);
+    }
+  }
+
+  .modal__horizontal__body {
+    @include media($media__m) {
+      padding: rem(65) rem(32);
+    }
+
+    @include media($media__xl) {
+      padding: rem(70) rem(100);
+    }
+  }
+}
