@@ -11,11 +11,10 @@ import ServiceListComppnent from './../components/service-list'
 class User extends Component {
 
 //uso do backend
-// static fetchData({ store, params }) {
-//    	let { cpf } = params
-//    	console.log('CPF',cpf);
-//    	return store.dispatch(load_user({ cpf }))
-//    }
+//static fetchData({ store, params }) {
+  //  	let { cpf } = params
+  //  	return store.dispatch(load_user({ cpf }))
+  //  }
 
 //uso do frontend
   componentWillMount() {

@@ -24,6 +24,12 @@ export function update_user(propName , propValue){
     case 'cpf':
       user = { cpf : propValue }
       break;
+    case 'cpfCripto':
+      user = { cpfCripto : propValue }
+      break;
+    case 'token':
+      user = { token : propValue }
+      break;
   }
 
   return {
@@ -46,28 +52,27 @@ export function load_user( cpf ) {
 
   return {
     [CALL_API]: {
-      method: 'post',
-      type: 'external',
+      method: 'post', 
       body :  cpf ,
       path: '/precadastro/consulta/',
       successType: LOADDED_USER,
-      type: 'external',
+      type: 'external'
       // afterSuccess : GO_TO('/usuario/concurso')
     }
   }
 }
 
-export function create_user() {
+export function create_user( user ) {
 
   return {
     [CALL_API]: {
-      method: 'post',
-      type: 'external',
-      body :  { cpf : 10559258720, token : 658828, senha  : 'abc123', cpfcripto  : '3XvZTP0atAgmyRaJVOwg0Q==' },
+      method: 'post', 
+      //body :  { cpf : user.get('cpf'), token : 658828, senha  : 'abc123', cpfcripto  : '3XvZTP0atAgmyRaJVOwg0Q==' },
+      body : user.toObject(),
       path: '/cadastro/',
       successType: CREATED_USER,
       errorType: CREATED_USER_ERROR,
-      type: 'external',
+      type: 'external'
       // afterSuccess : GO_TO('/user/10559258720')
     }
   }

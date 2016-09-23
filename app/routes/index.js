@@ -18,8 +18,9 @@ export default function(history) {
         <Route path="passo-2" component={SecondStep} />
         <Route path="user/:cpf" component={User} />
         <Route path="fixo" component={Fixo} />
+        <Route path=":email/:token/:cpfCripto" component={FirstStep} />
         <IndexRoute component={FirstStep} />
-      </Route>
+      </Route>  
     </Router>
   );
 };

@@ -11,7 +11,8 @@ class SecondtepComponent extends Component {
   }
 
   _submit() {
-
+    let { user, create_user } = this.props
+    create_user(user)
   }
 
   render () {
@@ -33,7 +34,7 @@ class SecondtepComponent extends Component {
               />
         </label>
         <label>
-          <button onClick={ create_user }>Continuar</button>
+          <button onClick={ this._submit.bind(this) }>Continuar</button>
             <Isvg src="/assets/icons/form/arrow.svg" />
         </label>
             

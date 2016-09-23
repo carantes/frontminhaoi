@@ -8,6 +8,15 @@ import FirstStepComponent from './../components/first-step'
 
 
 class FirstStep extends Component {
+  
+  componentWillMount() {
+    let { email, token, cpfCripto } = this.props.params
+    let { update_user } = this.props
+    
+    update_user('email', email )
+    update_user('token', token )
+    update_user('cpfCripto', cpfCripto )
+  }
   render() {
   	let { user , update_user } = this.props
     return (

@@ -8,6 +8,8 @@ let defaultState = Immutable.fromJS({
     , password : ''
     , cpf : ''
     , nome : 'Aguardando...'
+    , cpfCripto : ''
+    , token : ''
   } 
   , title : "Oi cadastro digital"
   , logo : "/assets/images/logos/oi/oi-logo-purple.svg"
