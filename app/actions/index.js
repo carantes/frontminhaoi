@@ -77,3 +77,10 @@ export function create_user( user ) {
     }
   }
 }
+
+export function errorMessage(data){
+  return {
+    type: CREATED_USER_ERROR,
+    data
+  }
+}

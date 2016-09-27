@@ -14,7 +14,7 @@ let defaultState = Immutable.fromJS({
   , title : "Oi cadastro digital"
   , logo : "/assets/images/logos/oi/oi-logo-purple.svg"
   , isCreated : false
-  , errorMessage : 'Sem Error'
+  , errorMessage : 'sem erro'
 })
  
 
@@ -30,7 +30,7 @@ function appReducer (state = defaultState, action) {
       return state.mergeDeep({ isCreated : true })
       break
     case CREATED_USER_ERROR :
-      return state.mergeDeep({ errorMessage : 'com error' })
+      return state.mergeDeep({ errorMessage : "sem erro"})
       break
     case SET_HOME_DATA :
       return state.mergeDeep({ title :  action.data.title, logo: action.data.logo })
