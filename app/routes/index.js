@@ -4,7 +4,6 @@ import { Router, Route, IndexRoute } from 'react-router';
 import configureStore from 'store/configureStore';
 
 import App from 'containers/App';
-import Intro from 'containers/Intro';
 import FirstStep from 'containers/FirstStep';
 import SecondStep from 'containers/SecondStep';
 import User from 'containers/User';

@@ -14,13 +14,11 @@ class FirstStepComponent extends Component {
     return (
       <form >
         <label htmlFor="email">
-          <input id="email" type="e-mail" name="email" placeholder="Digite seu e-mail" autoComplete="off"   onChange={this._handleChange.bind(this , 'email')}  value={user.get("email")} />
+          <input id="email" type="e-mail" name="email" readOnly="readOnly" placeholder="Digite seu e-mail" autoComplete="off"   onChange={this._handleChange.bind(this , 'email')}  value={user.get("email")} />
         </label>
         <label htmlFor="password">
           <input id="password" type="password" name="password" placeholder="Criar senha" autoComplete="off" onChange={this._handleChange.bind(this , 'password')}  value={user.get("password")} />
         </label>
-        <p>{ user.get('token') }</p>
-        <p>{ user.get('cpfCripto') }</p>
         <Link to="/passo-2">
           <label>
             <input type="submit" value="Continuar" autoComplete="off" />

@@ -17,11 +17,10 @@ class SecondtepComponent extends Component {
 
   render () {
     let { user, create_user, errorMessage } = this.props
- 
     return (
       <div className="form__user">
-      <label>{ errorMessage }</label>
-        <label for="cpf">
+      <label> { errorMessage }</label>
+        <label htmlFor="cpf">
           <InputElement
               id="cpf"
               type="text"

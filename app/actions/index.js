@@ -6,6 +6,7 @@ export const LOADDED_USER = Symbol('LOADDED_USER')
 export const CREATED_USER = Symbol('CREATED_USER') 
 export const CREATED_USER_ERROR = Symbol('CREATED_USER_ERROR') 
 export const SET_HOME_DATA = Symbol('SET_HOME_DATA') 
+export const SEND_USER_ERROR = Symbol('SEND_USER_ERROR') 
 
 export function GO_TO (path){
  browserHistory.push(path)
@@ -78,9 +79,9 @@ export function create_user( user ) {
   }
 }
 
-export function errorMessage(data){
+export function sendErrorMessage(mensagem){
   return {
-    type: CREATED_USER_ERROR,
-    data
+    type: SEND_USER_ERROR,
+    mensagem
   }
 }

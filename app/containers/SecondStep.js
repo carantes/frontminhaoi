@@ -6,6 +6,11 @@ import * as Actions from './../actions'
 import SecondStepComponent from './../components/second-step'
 
 class SecondStep extends Component {
+
+  componentWillMount() {
+    let { sendErrorMessage } = this.props
+    //sendErrorMessage('comecando funcao')
+  }
   render() {
   	let { user , update_user, create_user, errorMessage } = this.props
     return (
