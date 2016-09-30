@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
-import Isvg from 'react-inlinesvg'
 import InputElement from 'react-input-mask'
 import { Link } from 'react-router' 
+import LabelInformacao from '../atoms/label/labelInformacao'
+import Image from '../atoms/image/image'
+import ButtonActionComponent from '../buttonAction'
 
 class SecondtepComponent extends Component {
 
@@ -10,34 +12,33 @@ class SecondtepComponent extends Component {
     update_user( propName , event.target.value )
   }
 
-  _submit() {
+  _submit(e) {
     let { user, create_user } = this.props
+    e.preventDefault()  
     create_user(user)
+    return false
   }
 
   render () {
-    let { user, create_user, errorMessage } = this.props
+    let { user, create_user, errorMessage, formValidation } = this.props
     return (
-      <div className="form__user">
-      <span> { errorMessage } </span>
-        <label htmlFor="cpf">
-          <InputElement
-              id="cpf"
-              type="text"
-              className="base-text-input"
-              mask="999.999.999-99"
-              maskChar=""
-              placeholder="CPF"
-              onChange={this._handleChange.bind(this , 'cpf')}  
-              value={user.get("cpf")}
-              />
-        </label>
-        <label>
-          <button onClick={ this._submit.bind(this) }>Continuar</button>
-            <Isvg src="/assets/icons/form/arrow.svg" />
-        </label>
-            
-      </div>
+      <form onSubmit={this._submit.bind(this)}>
+        <div className="form__user">
+          <LabelInformacao htmlFor="cpf">
+            <InputElement
+                id="cpf"
+                type="text"
+                className="base-text-input"
+                mask="999.999.999-99"
+                maskChar=""
+                placeholder="CPF"
+                onChange={this._handleChange.bind(this , 'cpf')}  
+                value={user.get("cpf")}
+                />
+          </LabelInformacao>    
+          <ButtonActionComponent value="Entrar" formValidation={formValidation}/>       
+        </div>
+      </form>
     )
   }
 } 

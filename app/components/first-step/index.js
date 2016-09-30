@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
-import Isvg from 'react-inlinesvg'
-import { Link } from 'react-router' 
+import { Link } from 'react-router'
+import LabelInformacao from '../atoms/label/labelInformacao'
+import CheckBoxMostrarSenha from '../atoms/checkbox/checkMostarSenha'
+import ButtonActionComponent from '../buttonAction'
 
 class FirstStepComponent extends Component {
 
@@ -9,22 +11,37 @@ class FirstStepComponent extends Component {
     update_user( propName , event.target.value )
   }
 
+  _handleChangeCheckbox(e){
+    let{formImput, set_check_to_show_password} = this.props
+    set_check_to_show_password(!formImput.get('password').get('showPassword'))
+  }
+
+  _submit(e){
+    let { user, set_password_message,  set_validation_first_setp} = this.props
+    
+    e.preventDefault()      
+    const regex = new RegExp("([A-Za-z0-9]{6,8})");
+    if(regex.test(user.get("password")) === false){
+        set_password_message("senha incorreta")  
+    } else {
+       set_validation_first_setp()
+    }  
+
+    return false    
+  }
+ 
   render() {
-    let { user } = this.props
+    let { user, errorMessage, formImput, formValidation } = this.props
     return (
-      <form >
-        <label htmlFor="email">
+      <form onSubmit={this._submit.bind(this)}>
+        <LabelInformacao htmlFor="email">
           <input id="email" type="e-mail" name="email" readOnly="readOnly" placeholder="Digite seu e-mail" autoComplete="off"   onChange={this._handleChange.bind(this , 'email')}  value={user.get("email")} />
-        </label>
-        <label htmlFor="password">
-          <input id="password" type="password" name="password" placeholder="Criar senha" autoComplete="off" onChange={this._handleChange.bind(this , 'password')}  value={user.get("password")} />
-        </label>
-        <Link to="/passo-2">
-          <label>
-            <input type="submit" value="Continuar" autoComplete="off" />
-            <Isvg src="/assets/icons/form/arrow.svg" />
-          </label>
-        </Link> 
+        </LabelInformacao>
+        <LabelInformacao htmlFor="password" htmlMessage={formImput.get('password').get('message')}>        
+          <CheckBoxMostrarSenha message="Mostrar senha" onClick={this._handleChangeCheckbox.bind(this)}/>
+          <input id="password" type={formImput.get('password').get('type')} name="password" placeholder="Criar senha" autoComplete="off" onChange={this._handleChange.bind(this , 'password')}  value={user.get("password")} />          
+        </LabelInformacao>
+        <ButtonActionComponent value="Continuar" formValidation={formValidation}/>
       </form>
       
     )
