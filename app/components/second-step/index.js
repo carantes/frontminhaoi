@@ -20,7 +20,7 @@ class SecondtepComponent extends Component {
   }
 
   render () {
-    let { user, create_user, errorMessage, formValidation } = this.props
+    let { user, create_user, errorMessage, formValidation, show_button } = this.props
     return (
       <form onSubmit={this._submit.bind(this)}>
         <div className="form__user">
@@ -36,7 +36,7 @@ class SecondtepComponent extends Component {
                 value={user.get("cpf")}
                 />
           </LabelInformacao>    
-          <ButtonActionComponent value="Entrar" formValidation={formValidation}/>       
+          <ButtonActionComponent value="Entrar" formValidation={formValidation} show_button={show_button} />       
         </div>
       </form>
     )

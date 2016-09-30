@@ -4,11 +4,11 @@ import LabelInformacao from '../atoms/label/labelInformacao'
 
 class ButtonActionomponent extends Component {
 
-  // componentWillMount() {
-  //   let { show_button } = this.props
+  componentWillMount() {
+    let { show_button } = this.props
 
-  //   show_button();
-  // }
+    show_button();
+  }
 
   render () {
     let { value, formValidation } = this.props
