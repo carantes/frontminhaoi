@@ -99,7 +99,7 @@ export function create_user( user ) {
       successType: CREATED_USER,
       errorType: CREATED_USER_ERROR,
       type: 'external',
-      afterSuccess : ()=>{GO_TO('/user/'+user.get('cpf'))}
+      afterSuccess : ()=>{GO_TO('/user/'+user.get('cpf').replace(/[^0-9]/gi, ''))}
     }
   }
 }
@@ -113,18 +113,18 @@ export function sendErrorMessage(mensagem){
 
 export function show_button(){
   return {
-    type: SHOW_BUTTON
+    type: SHOW_BUTTON,
   }
 }
 
 export function show_error(){
   return {
-    type: SHOW_ERROR
+    type: SHOW_ERROR,
   }
 }
 
 export function show_success(){
   return {
-    type: SHOW_SUCCESS
+    type: SHOW_SUCCESS,
   }
 }

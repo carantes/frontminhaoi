@@ -5,18 +5,20 @@ import LabelInformacao from '../atoms/label/labelInformacao'
 class ButtonActionomponent extends Component {
 
   componentWillMount() {
-    let { show_button } = this.props
+    let { show_button, show_error, show_success } = this.props
 
     show_button();
   }
 
   render () {
     let { value, formValidation } = this.props
+    console.log("--------------------")
+    console.log(formValidation)
+    console.log("--------------------")
     return (
       <span>
       {
         formValidation.get('button') === 'button' ? (
-      
         <LabelInformacao>
           <input type="submit" value={value}/>
             <Isvg src="/assets/icons/form/arrow.svg" />
@@ -24,8 +26,8 @@ class ButtonActionomponent extends Component {
         ) : null
       }
       {
-        formValidation.get('button') === 'error' ? (
-      
+        formValidation.get('error') === 'error' ? (
+        
         <LabelInformacao>
           <input type="submit" value='error'/>
             <Isvg src="/assets/icons/form/arrow.svg" />
@@ -33,7 +35,7 @@ class ButtonActionomponent extends Component {
         ) : null
       } 
       {
-        formValidation.get('button') === 'success' ? (
+        formValidation.get('success') === 'success' ? (
       
         <LabelInformacao>
           <input type="submit" value='success'/>

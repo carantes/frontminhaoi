@@ -31,7 +31,7 @@ class FirstStepComponent extends Component {
   }
  
   render() {
-    let { user, errorMessage, formImput, formValidation, show_button } = this.props
+    let { user, errorMessage, formImput, formValidation, show_button, show_error, show_success } = this.props
     return (
       <form onSubmit={this._submit.bind(this)}>
         <LabelInformacao htmlFor="email">
@@ -41,7 +41,7 @@ class FirstStepComponent extends Component {
           <CheckBoxMostrarSenha message="Mostrar senha" onClick={this._handleChangeCheckbox.bind(this)}/>
           <input id="password" type={formImput.get('password').get('type')} name="password" placeholder="Criar senha" autoComplete="off" onChange={this._handleChange.bind(this , 'password')}  value={user.get("password")} />          
         </LabelInformacao>
-        <ButtonActionComponent value="Continuar" formValidation={formValidation} show_button={show_button}/>
+        <ButtonActionComponent value="Continuar" formValidation={formValidation} show_button={show_button} show_error={show_error} show_success={show_success}/>
       </form>
       
     )

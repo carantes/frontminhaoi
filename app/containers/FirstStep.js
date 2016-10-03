@@ -12,7 +12,7 @@ class FirstStep extends Component {
   
   componentWillMount() {
     let { email, token, cpfCripto } = this.props.params
-    let { update_user, errorMessage } = this.props
+    let { update_user, errorMessage, show_error } = this.props
     
     update_user('email', email )
     update_user('token', token )
@@ -26,10 +26,27 @@ class FirstStep extends Component {
       <div>
       {
         formValidation.get('firstStep') === false ? (
-          <FirstStepComponent set_validation_first_setp={set_validation_first_setp} formValidation={formValidation} formImput={formImput} set_check_to_show_password= {set_check_to_show_password} set_password_message={set_password_message} user={user} update_user={update_user} show_button={show_button} show_error={show_error} show_success={show_success}/>
+          <FirstStepComponent 
+            set_validation_first_setp={set_validation_first_setp} 
+            formValidation={formValidation} 
+            formImput={formImput} 
+            set_check_to_show_password= {set_check_to_show_password} 
+            set_password_message={set_password_message} 
+            user={user} 
+            update_user={update_user} 
+            show_button={show_button} 
+            show_error={show_error} 
+            show_success={show_success}/>
         ) :
         (
-          <SecondStepComponent user={user} update_user={update_user} create_user={create_user} errorMessage={errorMessage} formValidation={formValidation} show_button={show_button} show_error={show_error} show_success={show_success}/>
+          <SecondStepComponent user={user} 
+            update_user={update_user} 
+            create_user={create_user} 
+            errorMessage={errorMessage} 
+            formValidation={formValidation} 
+            show_button={show_button} 
+            show_error={show_error} 
+            show_success={show_success}/>
         )
       }      
       </div>
