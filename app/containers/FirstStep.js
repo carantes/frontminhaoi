@@ -12,12 +12,12 @@ class FirstStep extends Component {
   
   componentWillMount() {
     let { email, token, cpfCripto } = this.props.params
-    let { update_user, errorMessage, show_error } = this.props
+    let { update_user, errorMessage } = this.props
     
     update_user('email', email )
     update_user('token', token )
     update_user('cpfCripto', cpfCripto )
-
+    
   }
 
   render() {

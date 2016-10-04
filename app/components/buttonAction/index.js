@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Isvg from 'react-inlinesvg'
 import LabelInformacao from '../atoms/label/labelInformacao'
+import LabelInfoImage from '../atoms/label/labelInfoImage'
 
 class ButtonActionomponent extends Component {
 
@@ -11,10 +12,7 @@ class ButtonActionomponent extends Component {
   }
 
   render () {
-    let { value, formValidation } = this.props
-    console.log("--------------------")
-    console.log(formValidation)
-    console.log("--------------------")
+    let { value, formValidation, htmMessage } = this.props
     return (
       <span>
       {
@@ -28,10 +26,8 @@ class ButtonActionomponent extends Component {
       {
         formValidation.get('error') === 'error' ? (
         
-        <LabelInformacao>
-          <input type="submit" value='error'/>
-            <Isvg src="/assets/icons/form/arrow.svg" />
-        </LabelInformacao>
+        <LabelInfoImage htmMessage="Algo está errado!!!!"/>
+
         ) : null
       } 
       {

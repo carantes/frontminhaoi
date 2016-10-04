@@ -31,7 +31,12 @@ let defaultState = Immutable.fromJS({
 
 function appReducer (state = defaultState, action) {
   switch ( action.type ) { 
-    case UPDATE_USER :  
+    case UPDATE_USER :      
+
+    
+    //console.log(action.user.password)
+
+
       return state.mergeDeep({ user : action.user })
       break 
     case LOADDED_USER :  
