@@ -1,13 +1,13 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute } from 'react-router';
-import configureStore from 'store/configureStore';
+import configureStore from '../store/configureStore';
 
-import App from 'containers/App';
-import FirstStep from 'containers/FirstStep';
-import SecondStep from 'containers/SecondStep';
-import User from 'containers/User';
-import Fixo from 'containers/Fixo';
+import App from '../containers/App';
+import FirstStep from '../containers/FirstStep';
+import SecondStep from '../containers/SecondStep';
+import User from '../containers/User';
+import Fixo from '../containers/Fixo';
 
 
 export default function(history) {

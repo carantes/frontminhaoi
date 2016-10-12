@@ -1,4 +1,4 @@
-import { CALL_API, CHAIN_API } from 'middleware/api'
+import { CALL_API, CHAIN_API } from '../middleware/api'
 import { browserHistory } from 'react-router'
 import { _ } from 'lodash'
 export const UPDATE_USER = Symbol('UPDATE_USER') 

@@ -1,7 +1,7 @@
 import superAgent from 'superagent'
 import Promise, { using } from 'bluebird'
 import _ from 'lodash'
-import config from 'config'
+import config from '../config'
 import { camelizeKeys } from 'humps'
 
 export const CALL_API = Symbol('CALL_API')
